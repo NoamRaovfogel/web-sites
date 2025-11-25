@@ -5,19 +5,53 @@
 <html>
 <head runat="server">
     <title></title>
-    <asp:ContentPlaceHolder id="head" runat="server">
+    <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
 <body>
-          <h1>master start</h1>
-    <form id="form1" runat="server">
-    <div>
-        <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
-     
-        </asp:ContentPlaceHolder>
+    <style>
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
 
-    </div>
-    </form>
-            <h1>master end</h1>
+        img.a {
+            width:200px;
+            height: 150px
+        }
+    </style>
+   
+        <body dir =" "rlt" style="background-color: lightgray">
+        <center>
+
+        <h2>Noam's project</h2>
+
+        <table style="width: 100%">
+            <tr style="height: 250px">
+                <th><a href="home.aspx">
+                    <img class="a" src="images/Home.png" /></a>
+                    <a href="harshama.aspx">
+                        <img class="a" src="images/harshama.png" /></a>
+                    <a href="entrance.aspx">
+                            <img class="a" src="images/entrance.png" /></a>
+                    <a href="info.aspx">
+                                <img class="a" src="images/info.png" /></a>
+
+                </th>
+                <tr style="height: 500px">
+           <td>
+                       <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        </asp:ContentPlaceHolder>
+           </td>
+            </tr>
+           
+        </table>
+            </center>
+    </body>
+</html>
+
+
+
+
 </body>
 </html>
