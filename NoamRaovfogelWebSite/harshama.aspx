@@ -29,7 +29,19 @@
         לואיס אנריקה<input type="radio" name="radio1" value="ארנב" id="radio_4"><br />
         תשובה פתוחה:
          <br />
+        <br />
+        האם אתה מרשה לקבל עדכונים לכתובת הדואר האלקטרוני שלך
          <br />
+           כן<input type="radio" name="radio1"  value="כן" id="radio_5"><br />
+     לא<input type="radio" name="radio1" value="לא" id="radio_6"><br />
+          <br />
+          <br />
+             האם אתה מאשר את התקנון
+      <br />
+        כן<input type="radio" name="radio2"  value="כן" id="radio_7"><br />
+  לא<input type="radio" name="radio2" value="לא" id="radio_8"><br />
+       <br />
+       <br />
         <textarea rows="5" cols="20" name="textarea1" id="textarea1" placeholder="הכנס מלל חופשי"></textarea>
          <br />
         <br />
