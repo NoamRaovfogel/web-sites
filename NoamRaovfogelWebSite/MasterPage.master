@@ -21,7 +21,7 @@
         }
     </style>
    
-        <body dir =" "rlt" style="background-color: lightgray">
+        <body dir =" "rlt" style="background-color: lightblue">
         <center>
 
         <h2>Noam's project</h2>
@@ -36,6 +36,16 @@
                             <img class="a" src="images/entrance.png" /></a>
                     <a href="info.aspx">
                                 <img class="a" src="images/info.png" /></a>
+                    <a href="update.aspx">
+            <img class="a" src="images/עדכונים.png" /></a>
+                    <a href="managment.aspx">
+            <img class="a" src="images/הנהלה.png" /></a>
+                    <a href="exit.aspx">
+            <img class="a" src="images/יציאה.png" /></a>
+                    <a href="search.aspx">
+            <img class="a" src="images/חיפוש.png" /></a>
+                    <a href="gallery.aspx">
+            <img class="a" src="images/גלריה.png" /></a>
 
                 </th>
                 <tr style="height: 500px">
