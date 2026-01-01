@@ -6,5 +6,6 @@
     <center>
  <h1>יציאה</h1>
      </center>
+
 </asp:Content>
 

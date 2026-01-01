@@ -12,7 +12,9 @@
         <br />
          אימייל: <input type="text" name="gmail" id="gmail" placeholder= "enter your email" >
         <br />
-         <br />
+       מספר טלפון: <input type="text" name="phonenumber" id="phonenumber" placeholder="optional field">
+           <br />
+           <br />
         שחקני כדורגל אהובים: 
         <br />
         מסי<input type="checkbox" name="check2" checked value="מסי" id="check_1"><br />
@@ -30,10 +32,11 @@
         תשובה פתוחה:
          <br />
         <br />
+
         האם אתה מרשה לקבל עדכונים לכתובת הדואר האלקטרוני שלך
          <br />
-           כן<input type="radio" name="radio1"  value="כן" id="radio_5"><br />
-     לא<input type="radio" name="radio1" value="לא" id="radio_6"><br />
+           כן<input type="radio" name="radio3"  value="כן" id="radio_5"><br />
+     לא<input type="radio" name="radio3" value="לא" id="radio_6"><br />
           <br />
           <br />
              האם אתה מאשר את התקנון
