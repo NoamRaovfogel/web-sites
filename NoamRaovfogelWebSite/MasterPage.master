@@ -17,14 +17,16 @@
 
         img.a {
             width:200px;
-            height: 150px
+            height: 100px
         }
     </style>
    
-        <body dir =" "rlt" style="background-color: lightblue">
+        <body dir="rtl" style="background: linear-gradient(to right, red, blue); color: white;">
+
+
         <center>
 
-        <h2>Noam's project</h2>
+        <h2>הפרויקט של נועם</h2>
 
         <table style="width: 100%">
             <tr style="height: 250px">

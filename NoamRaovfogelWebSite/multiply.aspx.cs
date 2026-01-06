@@ -17,7 +17,7 @@ public partial class AspNet : System.Web.UI.Page
    
         for (int i = 1; i <= 10; i++)
         {
-            strkefel += "<tr style=\"background-color: green\">";
+            strkefel += "<tr style=\"background: linear-gradient(to right, red, blue);\">";
             for (int j = 1; j <= 10; j++)
             {
                 strkefel += "<td>";

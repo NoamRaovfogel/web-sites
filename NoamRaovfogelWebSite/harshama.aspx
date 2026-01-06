@@ -8,11 +8,11 @@
           </center>
             <h1 style="text-align:right;">האתר הרשמי של אוהדי ברצלונה</h1>
     <form name="formPage" method="post" runat="server" style="text-align:right;">
-       <input type="text" name="name" id="name" placeholder="enter your name"> :שם פרטי ושם משפחה 
+      :שם פרטי ושם משפחה  <input type="text" name="name" id="name" placeholder="enter your name"> 
         <br />
-          <input type="text" name="gmail" id="gmail" placeholder= "enter your email" > :אימייל
+           :אימייל <input type="text" name="gmail" id="gmail" placeholder= "enter your email" > 
         <br />
-     <input type="text" name="phonenumber" id="phonenumber" placeholder="optional field"> :מספר טלפון
+    :מספר טלפון <input type="text" name="phonenumber" id="phonenumber" placeholder="optional field"> 
            <br />
            <br />
         שחקני כדורגל אהובים: 
@@ -62,28 +62,28 @@
 
 
            
-        <%=name %>
+        <%=שם %>
            <br />
          <br />
-        <%=gmail%>
+        <%=אימייל%>
           <br />
          <br />
-        <%=phonenumber %>
+        <%=טלפון  %>
           <br />
          <br />
-        <%=footballplayers %>
+        <%=שחקן %>
           <br />
          <br />
-        <%=footballcoach%>
+        <%=מאמן%>
           <br />
          <br />
-        <%=updates %>
+        <%=עדכונים %>
           <br />
          <br />
-        <%=regulations %>
+        <%=תקנון %>
           <br />
          <br />
-        <%=age %>
+        <%=גיל %>
            <br />
 
           </center>

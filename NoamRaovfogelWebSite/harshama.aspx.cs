@@ -7,27 +7,27 @@ using System.Web.UI.WebControls;
 
 public partial class harshama : System.Web.UI.Page
 {
-    public string name;
-    public string gmail;
-    public string phonenumber;
-    public string footballplayers;
-    public string footballcoach;
-    public string updates;
-    public string regulations;
-    public string age;
+    public string שם;
+    public string אימייל;
+    public string  טלפון ;
+    public string שחקן;
+    public string מאמן;
+    public string עדכונים;
+    public string תקנון;
+    public string גיל;
    
     protected void Page_Load(object sender, EventArgs e)
     {
         if (Page.IsPostBack)
         {
-            name = "name:" + Request.Form["name"];
-            gmail = "gmail:" + Request.Form["gmail"];
-            phonenumber = "phonenumber:" + Request.Form["phonenumber"];
-            footballplayers = " footballplayers:" +Request.Form["check2"];
-            footballcoach = " footballcoach:" + Request.Form["radio1"];
-            updates = " updates:" + Request.Form["radio3"];
-            regulations = " regulations:" + Request.Form["radio2"];
-            age = " age:" + Request.Form["age"];
+           שם = "שם:" + Request.Form["name"];
+            אימייל = "אימייל:" + Request.Form["gmail"];
+            טלפון = "טלפון:" + Request.Form["phonenumber"];
+           שחקן = " שחקן:" +Request.Form["check2"];
+            מאמן = " מאמן:" + Request.Form["radio1"];
+            עדכונים = " עדכונים:" + Request.Form["radio3"];
+           תקנון = " תקנון:" + Request.Form["radio2"];
+           גיל = " גיל:" + Request.Form["age"];
 
         }
     }
