@@ -8,11 +8,11 @@
           </center>
             <h1 style="text-align:right;">האתר הרשמי של אוהדי ברצלונה</h1>
     <form name="formPage" method="post" runat="server" style="text-align:right;">
-        שם פרטי ושם משפחה: <input type="text" name="firstname" id="firstname" placeholder="enter your name">
+       <input type="text" name="name" id="name" placeholder="enter your name"> :שם פרטי ושם משפחה 
         <br />
-         אימייל: <input type="text" name="gmail" id="gmail" placeholder= "enter your email" >
+          <input type="text" name="gmail" id="gmail" placeholder= "enter your email" > :אימייל
         <br />
-       מספר טלפון: <input type="text" name="phonenumber" id="phonenumber" placeholder="optional field">
+     <input type="text" name="phonenumber" id="phonenumber" placeholder="optional field"> :מספר טלפון
            <br />
            <br />
         שחקני כדורגל אהובים: 
@@ -25,10 +25,10 @@
          <br />
        מאמן כדורגל אהוב: 
         <br />
-       האנסי פליק<input type="radio" name="radio1" checked value="כלב" id="radio_1"><br />
-        רונלד קואמן<input type="radio" name="radio1" value="חתול" id="radio_2"><br />
-       צ'אבי הרננדז<input type="radio" name="radio1" value="סוס"  id="radio_3"><br />
-        לואיס אנריקה<input type="radio" name="radio1" value="ארנב" id="radio_4"><br />
+       האנסי פליק<input type="radio" name="radio1" checked value=" האנסי פליק" id="radio_1"><br />
+        רונלד קואמן<input type="radio" name="radio1" value="רונלד קואמן" id="radio_2"><br />
+       צ'אבי הרננדז<input type="radio" name="radio1" value="צ'אבי הרננדז"  id="radio_3"><br />
+        לואיס אנריקה<input type="radio" name="radio1" value=" לואיס אנריקה" id="radio_4"><br />
         תשובה פתוחה:
          <br />
         <br />
@@ -58,5 +58,34 @@
          
         <input id="Submit1" type="submit" value="שלח" />
     </form>
+     <center>
+
+
+           
+        <%=name %>
+           <br />
+         <br />
+        <%=gmail%>
+          <br />
+         <br />
+        <%=phonenumber %>
+          <br />
+         <br />
+        <%=footballplayers %>
+          <br />
+         <br />
+        <%=footballcoach%>
+          <br />
+         <br />
+        <%=updates %>
+          <br />
+         <br />
+        <%=regulations %>
+          <br />
+         <br />
+        <%=age %>
+           <br />
+
+          </center>
 </asp:Content>
 
