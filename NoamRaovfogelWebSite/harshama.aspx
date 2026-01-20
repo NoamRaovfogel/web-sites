@@ -12,6 +12,8 @@
         <br />
            :אימייל <input type="text" name="gmail" id="gmail" placeholder= "enter your email" > 
         <br />
+         :סיסמה<input type="text" name="Password" id="Password" placeholder= "enter your Password" > 
+        <br />
     :מספר טלפון <input type="text" name="phonenumber" id="phonenumber" placeholder="optional field"> 
            <br />
            <br />
@@ -85,7 +87,12 @@
          <br />
         <%=גיל %>
            <br />
-
+           <br />
+          <%=סיסמה %>
+          <br />
+          <br />
+             <%=st %>
+           <br />
           </center>
 </asp:Content>
 
