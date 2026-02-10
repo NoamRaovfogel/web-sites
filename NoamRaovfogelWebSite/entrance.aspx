@@ -7,21 +7,10 @@
  <form name="formPage" method="post" runat="server" style="text-align:right;">
       <center>
 
-        אימייל:
-        <asp:TextBox ID="gmail" runat="server"
-            AutoPostBack="true"
-            OnTextChanged="gmail_TextChanged"
-            Placeholder="enter your gmail"></asp:TextBox>
-
-        <br /><br />
-
-        סיסמה:
-        <asp:TextBox ID="password" runat="server"
-            Enabled="false"
-            AutoPostBack="true"
-            OnTextChanged="password_TextChanged"
-            Placeholder="enter your password"></asp:TextBox>
-          </center>
+          :אימייל <input type="text" name="gmail" id="gmail" placeholder= "enter your email" > 
+<br />
+ :סיסמה<input type="text" name="Password" id="Password" placeholder= "enter your Password" > 
+<br />
         <br /><br />
 
       <center>
@@ -36,11 +25,12 @@
 
 
 
-
+     <input id="Submit1" type="submit" value="שלח" />
 
 
 
      
       </form>
+    <%=stResult %>
 </asp:Content>
 
