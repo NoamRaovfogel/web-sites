@@ -3,45 +3,34 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-             <h1 style="text-align:center;">הנהלה</h1>
- <form name="formPage" method="post" runat="server" style="text-align:right;">
-      <center>
 
-        אימייל:
-        <asp:TextBox ID="gmail" runat="server"
-            AutoPostBack="true"
-            OnTextChanged="gmail_TextChanged"
-            Placeholder="enter your gmail"></asp:TextBox>
-
-        <br /><br />
-
-        סיסמה:
-        <asp:TextBox ID="password" runat="server"
-            Enabled="false"
-            AutoPostBack="true"
-            OnTextChanged="password_TextChanged"
-            Placeholder="enter your password"></asp:TextBox>
-          </center>
-        <br /><br />
-
-      <center>
-        <asp:Label ID="msg" runat="server"
-            ForeColor="Green"
-            Font-Size="Large"></asp:Label>
-           </center>
-
-           <center>
+   <center>
+    <h1>הנהלה</h1>
+        </center>
+          <h1 style="text-align:right;">האתר הרשמי של אוהדי ברצלונה</h1>
+  <form name="formPage" method="post" runat="server" style="text-align:right;">
+    :שם פרטי ושם משפחה  <input type="text" name="name" id="name" placeholder="enter your name"> 
+      <br />
+      שחקני כדורגל אהובים: 
+      <br />
+      מסי<input type="checkbox" name="check2" checked value="מסי" id="check_1"><br />
+      ניימאר: <input type="checkbox" name="check2" value="ניימאר" id="check_2"><br />
+     ראפיניה<input type="checkbox" name="check2" value="רונאלדו"  id="check_3"><br />
+      פדרי: <input type="checkbox" name="check2" value="פדרי" id="check_4">
+       <br />
+       <br />
+    
+      <br />
+       
+      <input id="Submit1" type="submit" value="שלח" />
+  </form>
+   <center>
 
 
-
-
-
-
-
-
-
-
-     
-      </form>
+        <br />
+        <br />
+           <%=st %>
+         <br />
+        </center>
 </asp:Content>
 
