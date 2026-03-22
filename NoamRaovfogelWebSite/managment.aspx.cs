@@ -20,8 +20,8 @@ public partial class managment : System.Web.UI.Page
 
             string sqlSelect =
                 "SELECT * FROM tUsers " +
-                " WHERE Name = N'" + Name + "'" +
-                " AND FootballPlayers = N'" + Players + "'";
+                " WHERE Name LIKE N'%" + Name + "%'" +
+                " AND FootballPlayers LIKE N'%" + Players + "%'";
 
             DataTable dt = MyAdoHelper.ExecuteDataTable(sqlSelect);
 
