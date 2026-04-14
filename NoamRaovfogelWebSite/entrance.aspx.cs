@@ -17,7 +17,10 @@ public partial class entrance : System.Web.UI.Page
 
 
             if (email == "NoamRaovfogel@1234gmail.com" && password == "Noam5432")
+            {
+                Session["email"] = "היי נועם המנהל";
                 Response.Redirect("managment.aspx");
+            }
             else
             {
                 string sqlSelect =
@@ -27,10 +30,18 @@ public partial class entrance : System.Web.UI.Page
                 bool userExists = MyAdoHelper.IsExist(sqlSelect);
 
                 if (!userExists)
+                {
                     stResult = "אימייל או סיסמה שגויים";
+                    Session["email"] = "היי אורח";
+                }
                 else
+                {
                     //stResult = "משתמש רשום";
                     Response.Redirect("home.aspx");
+                    Session["email"] = "היי משתמש רשום";
+                }
+
+
             }
         }
     }

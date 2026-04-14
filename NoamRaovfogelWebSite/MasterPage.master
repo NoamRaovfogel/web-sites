@@ -22,11 +22,14 @@
     </style>
    
         <body dir="rtl" style="background: linear-gradient(to right, red, blue); color: white;">
-
+                                                   
 
         <center>
-
+             
         <h2>הפרויקט של נועם</h2>
+            <center>                       
+    <%=Session["email"]%>
+</center>
 
         <table style="width: 100%">
             <tr style="height: 250px">
@@ -49,25 +52,27 @@
                                 <img class="a" src="images/info.png" /></a>
                     <a href="managment.aspx">
             <img class="a" src="images/הנהלה.png" /></a>
-                   
-           
-            
-
+                                                                 
                 </th>
                 <tr style="height: 500px">
-           <td>
+
+           <td>  
                        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
         </asp:ContentPlaceHolder>
+
            </td>
             </tr>
-           
+               
         </table>
-            </center>
+            </center>    
+     
+
+
+
+
     </body>
 </html>
 
 
 
 
-</body>
-</html>
