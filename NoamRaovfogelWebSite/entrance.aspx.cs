@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Activities.Expressions;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -18,7 +19,9 @@ public partial class entrance : System.Web.UI.Page
 
             if (email == "NoamRaovfogel@1234gmail.com" && password == "Noam5432")
             {
-                Session["email"] = "היי נועם המנהל";
+                Session["nihol"] = "ok";
+                Session["name"] = "היי נועם המנהל";
+
                 Response.Redirect("managment.aspx");
             }
             else
@@ -27,22 +30,27 @@ public partial class entrance : System.Web.UI.Page
                 "SELECT * FROM tUsers " +
                 " WHERE Email = N'" + email + "' and Password = N'" + password + "'";
 
-                bool userExists = MyAdoHelper.IsExist(sqlSelect);
+                System.Data.DataTable dt = MyAdoHelper.ExecuteDataTable(sqlSelect);
 
-                if (!userExists)
+                if (dt.Rows.Count == 0)
                 {
-                    stResult = "אימייל או סיסמה שגויים";
-                    Session["email"] = "היי אורח";
+                    stResult = "אין נתונים";
+                    Session["name"] = "היי אורח";
                 }
                 else
                 {
-                    //stResult = "משתמש רשום";
+                    Session["user"] = "ok";
+                    Session["name"] = dt.Rows[0]["Name"];
+
                     Response.Redirect("home.aspx");
-                    Session["email"] = "היי משתמש רשום";
                 }
 
+            }
+            {
 
             }
         }
     }
 }
+    
+

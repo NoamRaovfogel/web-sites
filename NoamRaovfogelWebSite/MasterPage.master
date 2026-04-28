@@ -28,30 +28,32 @@
              
         <h2>הפרויקט של נועם</h2>
             <center>                       
-    <%=Session["email"]%>
+    <%=Session["name"]%>
 </center>
 
         <table style="width: 100%">
             <tr style="height: 250px">
                 <th>
-                                       <a href="search.aspx">
-          <img class="a" src="images/חיפוש.png" /></a>
-                    <a href="home.aspx">
-                    <img class="a" src="images/Home.png" /></a>
-                   <a href="exit.aspx">
-           <img class="a" src="images/יציאה.png" /></a>
-                    <a href="harshama.aspx">
-                        <img class="a" src="images/harshama.png" /></a>
-                              <a href="gallery.aspx">
-            <img class="a" src="images/גלריה.png" /></a>
-                    <a href="entrance.aspx">
-                            <img class="a" src="images/entrance.png" /></a>
-                                   <a href="update.aspx">
-            <img class="a" src="images/עדכונים.png" /></a>
-                    <a href="info.aspx">
-                                <img class="a" src="images/info.png" /></a>
-                    <a href="managment.aspx">
-            <img class="a" src="images/הנהלה.png" /></a>
+
+                                       <%if (Session["nihol"] == "ok" || Session["user"] == "ok")
+                                           { %>
+                                         <a href="Add.aspx"><img class="a" src="images/Add.png" /></a>
+                    <%} %>
+                   <a href="home.aspx"> <img class="a" src="images/Home.png" /></a>
+                
+           <a href="exit.aspx"> <img class="a" src="images/יציאה.png" /></a>  
+                    
+                        <a href="harshama.aspx"> <img class="a" src="images/harshama.png" /></a>  
+                    
+             <a href="gallery.aspx"><img class="a" src="images/גלריה.png" /></a>    
+                    
+                            <a href="entrance.aspx"><img class="a" src="images/entrance.png" /></a >   
+                    
+                   <a href="update.aspx"> <img class="a" src="images/עדכונים.png" /></a>    
+                    
+                                   <a href="info.aspx"> <img class="a" src="images/info.png" /></a>
+            
+            <a href="managment.aspx"><img class="a" src="images/הנהלה.png" /></a>
                                                                  
                 </th>
                 <tr style="height: 500px">
