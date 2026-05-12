@@ -1,16 +1,60 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="harshama.aspx.cs" Inherits="harshama" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
+    <script language ="javascript">
+        function checkAll(){
+        fnErr2.innerHTML="";
+          emailErr2.innerHTML="";
+
+        result = true;
+        
+        if(CheckFirstName() == false)
+        result = false;
+
+         if(CheckEmail() == false)
+ result = false;
+
+        return result;
+        }
+
+        function CheckFirstName() {
+            name = document.getElementById("fn").value;
+            if (name.length < 2) {
+                fnErr2.innerHTML = "שם חייב להכיל לפחות שני תווים";
+                return false
+            }
+            if (name.length > 10) {
+                fnErr2.innerHTML = "שם ארוך מדי";
+                return false
+            }
+        return true
+        }
+
+        function CheckEmail() {
+            email = document.getElementById("email").value;
+            if (email.length < 8 ) {
+                emailErr2.innerHTML = "";
+                return false
+            }
+            if (email.length > 25) {
+                emailErr2.innerHTML = "";
+                return false
+            }
+return true
+}
+    </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
      <center>
       <h1>הרשמה</h1>
           </center>
             <h1 style="text-align:right;">האתר הרשמי של אוהדי ברצלונה</h1>
-    <form name="formPage" method="post" runat="server" style="text-align:right;">
+    <form name="formPage" method="post" runat="server" style="text-align:right;" onsubmit="return checkAll();">
       :שם פרטי ושם משפחה  <input type="text" name="name" id="name" placeholder="enter your name"> 
-        <br />
+        <span id ="fnErr2"></span>
+          <br />
            :אימייל <input type="text" name="gmail" id="gmail" placeholder= "enter your email" > 
+        <span id ="emailErr2"></span>
         <br />
          :סיסמה<input type="text" name="Password" id="Password" placeholder= "enter your Password" > 
         <br />
