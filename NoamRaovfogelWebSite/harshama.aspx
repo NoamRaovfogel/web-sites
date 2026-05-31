@@ -159,51 +159,51 @@
 <form name="formPage" method="post" runat="server" style="text-align:right;" onsubmit="return checkAll();">
 
 :שם פרטי ושם משפחה  
-<input type="text" id="name">
+<input type="text" id="name" name="name">
 <span id="nameErr2"></span>
 <br />
 
 :אימייל  
-<input type="text" id="email">
+<input type="text" id="email" name="email">
 <span id="emailErr2"></span>
 <br />
 
 :סיסמה  
-<input type="text" id="Password">
+<input type="text" id="Password" name="Password">
 <span id="PasswordErr2"></span>
 <br />
 
 :מספר טלפון  
-<input type="text" id="phonenumber">
+<input type="text" id="phonenumber" name="phonenumber">
 <span id="PhoneNumberErr2"></span>
 <br /><br />
 
 שחקני כדורגל אהובים:<br />
-מסי <input type="checkbox" id="check_1"><br />
-ניימאר <input type="checkbox" id="check_2"><br />
-ראפיניה <input type="checkbox" id="check_3"><br />
-פדרי <input type="checkbox" id="check_4"><br />
+מסי <input type="checkbox" name="players" value="מסי" id="check_1"><br />
+ניימאר <input type="checkbox" name="players" value="ניימאר" id="check_2"><br />
+ראפיניה <input type="checkbox" name="players" value="ראפיניה" id="check_3"><br />
+פדרי <input type="checkbox" name="players" value="פדרי" id="check_4"><br />
 <span id="FavoritesErr2"></span>
 
 <br /><br />
 
 מאמן כדורגל אהוב:<br />
-האנסי פליק <input type="radio" name="radio1" id="radio_1"><br />
-רונלד קואמן <input type="radio" name="radio1" id="radio_2"><br />
-צ'אבי הרננדז <input type="radio" name="radio1" id="radio_3"><br />
-לואיס אנריקה <input type="radio" name="radio1" id="radio_4"><br />
+האנסי פליק <input type="radio" name="radio1" value="האנסי פליק" id="radio_1"><br />
+רונלד קואמן <input type="radio" name="radio1" value="רונלד קואמן" id="radio_2"><br />
+צ'אבי הרננדז <input type="radio" name="radio1" value="צ'אבי הרננדז" id="radio_3"><br />
+לואיס אנריקה <input type="radio" name="radio1" value="לואיס אנריקה" id="radio_4"><br />
 <span id="CoachErr2"></span>
 
 <br /><br />
 
 האם אתה מאשר את התקנון:<br />
-כן <input type="radio" name="radio2" id="radio_7"><br />
-לא <input type="radio" name="radio2" id="radio_8"><br />
+כן <input type="radio" name="radio2" value="כן" id="radio_7"><br />
+לא <input type="radio" name="radio2" value="לא" id="radio_8"><br />
 <span id="TermsErr2"></span>
 
 <br /><br />
 
-<select id="age">
+<select id="age" name="age">
     <option value="0">בחר גיל</option>
     <option value="14">14</option>
     <option value="15">15</option>
@@ -213,7 +213,7 @@
 
 <br /><br />
 
-<textarea id="textarea1"></textarea>
+<textarea id="textarea1" name="updates"></textarea>
 
 <br /><br />
 

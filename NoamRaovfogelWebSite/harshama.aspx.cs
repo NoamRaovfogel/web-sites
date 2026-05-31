@@ -15,16 +15,21 @@ public partial class harshama : System.Web.UI.Page
     {
         if (Page.IsPostBack)
         {
-           string Name = Request.Form["name"];
-            String Email =  Request.Form["gmail"];
+            string Name = Request.Form["name"];
+            String Email = Request.Form["email"]; // שונה מ-gmail ל-email כדי להתאים לטופס
             string Password = Request.Form["Password"];
-            string PhoneNumber  = Request.Form["phonenumber"];
-           string Players = Request.Form["check2"];
-            string Coach =  Request.Form["radio1"];
-            string Updates =  Request.Form["radio3"];
-          String Regulations = Request.Form["radio2"];
-           string Age =  Request.Form["age"];
+            string PhoneNumber = Request.Form["phonenumber"];
+            string Players = Request.Form["players"]; // שונה מ-check2 ל-players כדי לקלוט את השחקנים שנבחרו
+            string Coach = Request.Form["radio1"];
+            string Updates = Request.Form["updates"]; // שונה מ-radio3 ל-updates כדי לקלוט את ה-textarea
+            String Regulations = Request.Form["radio2"];
+            string Age = Request.Form["age"];
 
+            // הגנה קריטית: אם הגיל מגיע ריק, נשים בו "0" כדי שמשפט ה-SQL לא יישבר ויזרוק שגיאה
+            if (string.IsNullOrEmpty(Age) || Age == "0")
+            {
+                Age = "0";
+            }
 
 
             string sqlSelect =
@@ -35,23 +40,25 @@ public partial class harshama : System.Web.UI.Page
 
             if (userExists)
                 st = "משתמש קיים";
-            else {
+            else
+            {
 
 
 
                 string sqlinsert =
                 "insert into tUsers" +
                 " values (" +
-               "N'" + Name + "'," +
-               "N'" + Email + "'," +
-               "N'" + Password + "'," +
-               "N'" + PhoneNumber + "'," +
-               "N'" + Players + "'," +
-               "N'" + Coach + "'," +
-               "N'" + Updates + "'," +
+                "N'" + Name + "'," +
+                "N'" + Email + "'," +
+                "N'" + Password + "'," +
+                "N'" + PhoneNumber + "'," +
+                "N'" + Players + "'," +
+                "N'" + Coach + "'," +
+                "N'" + Updates + "'," +
                 "N'" + Regulations + "'," +
                  Age +
-               ")";
+                ")";
+
 
                 MyAdoHelper.DoQuery("MyDb.mdf", sqlinsert);
                 //st = "נרשמת בהצלחה!";
