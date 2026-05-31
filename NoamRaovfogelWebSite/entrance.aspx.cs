@@ -11,6 +11,12 @@ public partial class entrance : System.Web.UI.Page
     public string stResult = "";
     protected void Page_Load(object sender, EventArgs e)
     {
+        // תיקון מחוון: אם משתמש או מנהל כבר מחוברים, נזרוק אותם לדף הבית כי אסור להם לראות דף כניסה
+        if (Session["user"] == "ok" || Session["nihol"] == "ok")
+        {
+            Response.Redirect("home.aspx");
+        }
+
         if (Page.IsPostBack)
         {
             string email = Request.Form["gmail"];
@@ -46,11 +52,6 @@ public partial class entrance : System.Web.UI.Page
                 }
 
             }
-            {
-
-            }
         }
     }
 }
-    
-

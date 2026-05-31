@@ -88,13 +88,13 @@
     }
 
     function CheckPhoneNumber() {
-        PhoneNumber = document.getElementById("phonenumber").value;
+        phoneNumber = document.getElementById("phonenumber").value;
 
-        if (PhoneNumber.length < 10) {
+        if (phoneNumber.length < 10) {
             PhoneNumberErr2.innerHTML = "מספר טלפון קצר מדי";
             return false;
         }
-        if (PhoneNumber.length > 10) {
+        if (phoneNumber.length > 10) {
             PhoneNumberErr2.innerHTML = "מספר טלפון ארוך מדי";
             return false;
         }
@@ -152,7 +152,10 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
 
-<center><h1>הרשמה</h1></center>
+<center>
+    <h1>הרשמה</h1>
+    <h3 style="color:red;"><%=st %></h3> 
+</center>
 
 <h1 style="text-align:right;">האתר הרשמי של אוהדי ברצלונה</h1>
 
@@ -160,22 +163,22 @@
 
 :שם פרטי ושם משפחה  
 <input type="text" id="name" name="name">
-<span id="nameErr2"></span>
+<span id="nameErr2" style="color:red;"></span>
 <br />
 
 :אימייל  
 <input type="text" id="email" name="email">
-<span id="emailErr2"></span>
+<span id="emailErr2" style="color:red;"></span>
 <br />
 
 :סיסמה  
-<input type="text" id="Password" name="Password">
-<span id="PasswordErr2"></span>
+<input type="password" id="Password" name="Password">
+<span id="PasswordErr2" style="color:red;"></span>
 <br />
 
 :מספר טלפון  
 <input type="text" id="phonenumber" name="phonenumber">
-<span id="PhoneNumberErr2"></span>
+<span id="PhoneNumberErr2" style="color:red;"></span>
 <br /><br />
 
 שחקני כדורגל אהובים:<br />
@@ -183,7 +186,7 @@
 ניימאר <input type="checkbox" name="players" value="ניימאר" id="check_2"><br />
 ראפיניה <input type="checkbox" name="players" value="ראפיניה" id="check_3"><br />
 פדרי <input type="checkbox" name="players" value="פדרי" id="check_4"><br />
-<span id="FavoritesErr2"></span>
+<span id="FavoritesErr2" style="color:red;"></span>
 
 <br /><br />
 
@@ -192,14 +195,14 @@
 רונלד קואמן <input type="radio" name="radio1" value="רונלד קואמן" id="radio_2"><br />
 צ'אבי הרננדז <input type="radio" name="radio1" value="צ'אבי הרננדז" id="radio_3"><br />
 לואיס אנריקה <input type="radio" name="radio1" value="לואיס אנריקה" id="radio_4"><br />
-<span id="CoachErr2"></span>
+<span id="CoachErr2" style="color:red;"></span>
 
 <br /><br />
 
 האם אתה מאשר את התקנון:<br />
 כן <input type="radio" name="radio2" value="כן" id="radio_7"><br />
 לא <input type="radio" name="radio2" value="לא" id="radio_8"><br />
-<span id="TermsErr2"></span>
+<span id="TermsErr2" style="color:red;"></span>
 
 <br /><br />
 
@@ -209,7 +212,7 @@
     <option value="15">15</option>
     <option value="16">16</option>
 </select>
-<span id="AgeErr2"></span>
+<span id="AgeErr2" style="color:red;"></span>
 
 <br /><br />
 

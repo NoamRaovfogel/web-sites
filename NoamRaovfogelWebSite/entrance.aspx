@@ -9,7 +9,7 @@
 
           :אימייל <input type="text" name="gmail" id="gmail" placeholder= "enter your email" > 
 <br />
- :סיסמה<input type="text" name="Password" id="Password" placeholder= "enter your Password" > 
+ :סיסמה<input type="password" name="Password" id="Password" placeholder= "enter your Password" > 
 <br />
         <br /><br />
 
@@ -19,18 +19,8 @@
             Font-Size="Large"></asp:Label>
            </center>
 
-  
+      <input id="Submit1" type="submit" value="שלח" />
 
-
-
-
-
-     <input id="Submit1" type="submit" value="שלח" />
-
-
-
-     
       </form>
     <%=stResult %>
 </asp:Content>
-

@@ -9,28 +9,30 @@ public partial class harshama : System.Web.UI.Page
 {
     public string st = "";
 
-
-
     protected void Page_Load(object sender, EventArgs e)
     {
+        // תיקון מחוון: חסימת משתמש רשום או מנהל מלהיכנס לדף הרשמה
+        if (Session["user"] == "ok" || Session["nihol"] == "ok")
+        {
+            Response.Redirect("home.aspx");
+        }
+
         if (Page.IsPostBack)
         {
             string Name = Request.Form["name"];
-            String Email = Request.Form["email"]; // שונה מ-gmail ל-email כדי להתאים לטופס
+            String Email = Request.Form["email"];
             string Password = Request.Form["Password"];
             string PhoneNumber = Request.Form["phonenumber"];
-            string Players = Request.Form["players"]; // שונה מ-check2 ל-players כדי לקלוט את השחקנים שנבחרו
+            string Players = Request.Form["players"];
             string Coach = Request.Form["radio1"];
-            string Updates = Request.Form["updates"]; // שונה מ-radio3 ל-updates כדי לקלוט את ה-textarea
+            string Updates = Request.Form["updates"];
             String Regulations = Request.Form["radio2"];
             string Age = Request.Form["age"];
 
-            // הגנה קריטית: אם הגיל מגיע ריק, נשים בו "0" כדי שמשפט ה-SQL לא יישבר ויזרוק שגיאה
             if (string.IsNullOrEmpty(Age) || Age == "0")
             {
                 Age = "0";
             }
-
 
             string sqlSelect =
                 "SELECT * FROM tUsers " +
@@ -39,12 +41,9 @@ public partial class harshama : System.Web.UI.Page
             bool userExists = MyAdoHelper.IsExist(sqlSelect);
 
             if (userExists)
-                st = "משתמש קיים";
+                st = "מייל זה כבר קיים במערכת"; // תיקון מחוון: הודעה ברורה
             else
             {
-
-
-
                 string sqlinsert =
                 "insert into tUsers" +
                 " values (" +
@@ -57,12 +56,12 @@ public partial class harshama : System.Web.UI.Page
                 "N'" + Updates + "'," +
                 "N'" + Regulations + "'," +
                  Age +
-                ")";
-
+                 ")";
 
                 MyAdoHelper.DoQuery("MyDb.mdf", sqlinsert);
-                //st = "נרשמת בהצלחה!";
-                Response.Redirect("home.aspx");
+
+                // תיקון מחוון: העברה לדף התחברות (entrance) ולא לדף הבית
+                Response.Redirect("entrance.aspx");
             }
         }
     }

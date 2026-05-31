@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
-using System.Runtime.InteropServices;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -12,11 +11,16 @@ public partial class managment : System.Web.UI.Page
     public string st = "";
     protected void Page_Load(object sender, EventArgs e)
     {
+        // תיקון מחוון קריטי: הגנת עמוד ניהול - מי שלא מנהל מועף מיד לדף הבית!
+        if (Session["nihol"] != "ok")
+        {
+            Response.Redirect("home.aspx");
+        }
+
         if (Page.IsPostBack)
         {
             string Name = Request.Form["name"];
             string Players = Request.Form["check2"];
-           
 
             string sqlSelect =
                 "SELECT * FROM tUsers " +

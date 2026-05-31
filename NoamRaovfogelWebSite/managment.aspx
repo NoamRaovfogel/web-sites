@@ -15,7 +15,7 @@
       <br />
       מסי<input type="checkbox" name="check2" checked value="מסי" id="check_1"><br />
       ניימאר: <input type="checkbox" name="check2" value="ניימאר" id="check_2"><br />
-     ראפיניה<input type="checkbox" name="check2" value="רונאלדו"  id="check_3"><br />
+      ראפיניה<input type="checkbox" name="check2" value="ראפיניה"  id="check_3"><br />
       פדרי: <input type="checkbox" name="check2" value="פדרי" id="check_4">
        <br />
        <br />
@@ -26,11 +26,9 @@
   </form>
    <center>
 
-
         <br />
         <br />
            <%=st %>
          <br />
         </center>
 </asp:Content>
-
