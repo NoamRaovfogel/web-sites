@@ -26,11 +26,14 @@ public partial class ShowPlayers : System.Web.UI.Page
             for (int i = 0; i < dt.Rows.Count; i++)
             {
                 st += "<tr>";
-                st += "<td>" + dt.Rows[i]["Name"].ToString() + "</td>";
-                st += "<td>" + dt.Rows[i]["Age"].ToString() + "</td>";
-                st += "<td>" + dt.Rows[i]["Trophies"].ToString() + "</td>";
-                st += "<td>" + dt.Rows[i]["Clubs"].ToString() + "</td>";
-                st += "<td>" + dt.Rows[i]["Idol"].ToString() + "</td>";
+
+                // שים לב למספרים בתוך ה-[ ] בסוף כל שורה:
+                st += "<td>" + dt.Rows[i][1].ToString() + "</td>"; // כאן צריך להיות השם! אם מופיע משהו אחר, נחליף את ה-0 במספר אחר
+                st += "<td>" + dt.Rows[i][2].ToString() + "</td>"; // כאן צריך להיות הגיל! 
+                st += "<td>" + dt.Rows[i][3].ToString() + "</td>"; // כאן צריכים להיות הגביעים!
+                st += "<td>" + dt.Rows[i][4].ToString() + "</td>"; // כאן צריכות להיות קבוצות העבר!
+                st += "<td>" + dt.Rows[i][5].ToString() + "</td>"; // כאן צריכה להיות ההשראה!
+
                 st += "</tr>";
             }
             st += "</table>";
