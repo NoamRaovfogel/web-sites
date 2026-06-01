@@ -34,12 +34,11 @@
     <a href="entrance.aspx"><img class="a" src="images/entrance.png" /></a>   
 <% } %>
 
-<%-- הוספת פריט ויציאה - פתוח גם למשתמש רשום וגם למנהל לפי המחוון --%>
 <% if (Session["nihol"] == "ok" || Session["user"] == "ok") { %>
     <a href="Add.aspx"><img class="a" src="images/Add.png" /></a>
+    <a href="ShowPlayers.aspx"><img class="a" src="images/שליפה.png" /></a>
     <a href="exit.aspx"><img class="a" src="images/יציאה.png" /></a>  
-<% } %> 
-
+<% } %>
 <%-- דפי הנהלה - למנהל בלבד (לא נגענו בעדכונים!) --%>
 <% if (Session["nihol"] == "ok") { %>
     <a href="update.aspx"><img class="a" src="images/עדכונים.png" /></a>    

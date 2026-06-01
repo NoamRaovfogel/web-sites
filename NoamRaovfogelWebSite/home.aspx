@@ -7,8 +7,7 @@
     <div style="text-align: center; padding: 30px;">
         <h1>ברוכים הבאים לאתר הרשמי של אוהדי ברצלונה!</h1>
         <p style="font-size: 18px;">שמחים שהצטרפתם אלינו. כאן תוכלו להתעדכן בכל מה שקורה במועדון הקטלוני.</p>
-        
         <br />
-        <img src="images/Home.png" alt="ברצלונה" style="width: 400px; border-radius: 10px;" />
+       
     </div>
 </asp:Content>
