@@ -25,24 +25,35 @@
         <table style="width: 100%">
             <tr style="height: 250px">
                 <th>
-                    <a href="home.aspx"><img class="a" src="images/Home.png" /></a>
-                    <a href="gallery.aspx"><img class="a" src="images/גלריה.png" /></a>    
-                    <a href="info.aspx"><img class="a" src="images/info.png" /></a>
+                    <a href="home.aspx">
+                        <img src="images/Home.png" /></a>
+                      
+                    <a href="gallery.aspx">
+                        <img src="images/גלריה.png" /> </a>    
+                    <a href="info.aspx">
+                        <img src="images/info.png" /></a>
 
         <% if (Session["nihol"] != "ok" && Session["user"] != "ok") { %>
-    <a href="harshama.aspx"><img class="a" src="images/harshama.png" /></a>  
-    <a href="entrance.aspx"><img class="a" src="images/entrance.png" /></a>   
+    <a href="harshama.aspx">
+        <img src="images/harshama.png" /></a>  
+    <a href="entrance.aspx">
+        <img src="images/entrance.png" /></a>   
 <% } %>
 
 <% if (Session["nihol"] == "ok" || Session["user"] == "ok") { %>
-    <a href="Add.aspx"><img class="a" src="images/Add.png" /></a>
-    <a href="ShowPlayers.aspx"><img class="a" src="images/שליפה.png" /></a>
-    <a href="exit.aspx"><img class="a" src="images/יציאה.png" /></a>  
+    <a href="Add.aspx">
+        <img src="images/הוספת%20פריט.png" /></a>
+    <a href="ShowPlayers.aspx">
+        <img src="images/הצגת%20שחקנים.png" /></a>
+    <a href="exit.aspx">
+        <img src="images/יציאה.png" /><img src="images/הנהלה.png" /></a>  
 <% } %>
 <%-- דפי הנהלה - למנהל בלבד (לא נגענו בעדכונים!) --%>
 <% if (Session["nihol"] == "ok") { %>
-    <a href="update.aspx"><img class="a" src="images/עדכונים.png" /></a>    
-    <a href="managment.aspx"><img class="a" src="images/הנהלה.png" /></a>
+    <a href="update.aspx">
+        <img src="images/עדכונים.png" /></a>    
+    <a href="managment.aspx">
+                    <img src="images/הנהלה.png" /></a>
 <% } %>
                 </th>
             </tr>
