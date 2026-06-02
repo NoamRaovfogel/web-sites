@@ -59,7 +59,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <center>
         <%-- כותרת הדף המרכזית --%>
-        <h1>הוספת פריט</h1>
+        <h1>  הוספת פריט - כאן תוכלו לשתף מידע על השחקנים האהובים עליכם</h1>
     </center>
     <%-- תת כותרת מיושרת לימין --%>
     <h1 style="text-align:right;">האתר הרשמי של אוהדי ברצלונה</h1>

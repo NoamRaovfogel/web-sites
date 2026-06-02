@@ -150,12 +150,6 @@
                         <img class="a" src="images/עדכונים.png" /></a>     
                     <a href="managment.aspx">
                         <img class="a" src="images/הנהלה.png" /></a>
-                     <a href="Add.aspx">
-     <img class="a" src="images/הוספת%20פריט.png" /></a>
-                                        <a href="ShowPlayers.aspx">
-                        <img class="a" src="images/הצגת%20שחקנים.png" /></a>
-                      <a href="exit.aspx">
-      <img class="a" src="images/יציאה.png" /></a>  
 
                 <% } %>
                 </th>
