@@ -1,67 +1,163 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" %>
+﻿<%-- שורת הגדרה ראשית המקשרת בין דף ה-HTML לבין דף קוד השרת שלו ב-C# (קובץ ה-cs) --%>
+<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" %>
 
 <!DOCTYPE html>
 <html>
 <head runat="server">
+    <%-- כותרת האתר שתוצג בלשונית של הדפדפן --%>
     <title>האתר של נועם</title>
+    
+    <%-- אזור דינמי בראש הדף המאפשר לדפים הפנימיים להוסיף קבצי עיצוב או סקריפטים משלהם --%>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
+    
     <style>
+        /* הגדרת גבולות הטבלה - מסגרת זהב דקה ונקייה שמתאימה לעיצוב החדש */
         table, th, td {
-            border: 1px solid black;
-            border-collapse: collapse;
+            border: 2px solid #edbb00; /* עובי המסגרת 2 פיקסלים, סוג קו רציף, וצבע זהב */
+            border-collapse: collapse; /* ביטול הרווחים הכפולים בין גבולות התאים כדי שיהיה קו אחד נקי */
         }
+
+        /* ה-Blend האמנותי: ערבוב מוחלט של כחול, אדום ולבן בלי קווים חדים */
+        body {
+            background-color: #004d98; /* צבע ברירת מחדל לרקע (כחול ברצלונה) למקרה שהתמונה לא נטענת */
+            
+            /* יצירת רקע מודרני המורכב מחמישה עיגולי צבע מטושטשים שמתמזגים זה בזה (Mesh Gradient) */
+            background-image: 
+                radial-gradient(at 0% 100%, #a50044 0px, transparent 55%),     /* אדום חזק בפינה השמאלית התחתונה */
+                radial-gradient(at 100% 0%, #a50044 0px, transparent 60%),     /* אדום חזק בפינה הימנית העליונה */
+                radial-gradient(at 50% 50%, rgba(255, 255, 255, 0.4) 0px, transparent 45%), /* נגיעת אור לבנה ורכה שמתערבבת בדיוק במרכז */
+                radial-gradient(at 0% 0%, #002f6c 0px, transparent 50%),       /* כחול עמוק בפינה השמאלית העליונה */
+                radial-gradient(at 100% 100%, #001c44 0px, transparent 50%);   /* כחול חצות בפינה הימנית התחתונה */
+            
+            background-attachment: fixed; /* קיבוע הרקע למסך כך שהוא לא יזוז כאשר המשתמש גולל את הדף */
+            color: #ffffff; /* צבע ברירת המחדל לטקסט באתר - לבן */
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* הגדרת גופנים מודרניים וקריאים */
+            margin: 0; /* איפוס השוליים החיצוניים של הדף כדי למנוע רווחים מיותרים בקצוות המסך */
+            padding: 0; /* איפוס השוליים הפנימיים של גוף הדף */
+            min-height: 100vh; /* קביעה שגובה גוף האתר יתפוס לפחות 100 אחוז מגובה מסך המשתמש */
+        }
+
+        /* הטבלה המקורית שלך - שקופה עם אפקט זכוכית מעודן כדי שה-blend ישתקף דרכה */
+        table.main-table {
+            width: 100%; /* קביעה שהטבלה המרכזית תתפרס על פני כל רוחב המסך (100 אחוז) */
+            background-color: rgba(255, 255, 255, 0.07); /* רקע לבן עם 7 אחוזי אטימות בלבד (שקוף מאוד קריא) */
+            backdrop-filter: blur(8px); /* יצירת אפקט טשטוש יוקרתי (כמו זכוכית מטרת) לצבעים שעוברים מאחורי הטבלה */
+            -webkit-backdrop-filter: blur(8px); /* התאמת אפקט הטשטוש גם לדפדפנים מבוססי אפל וספארי */
+            box-shadow: 0 10px 35px rgba(0, 0, 0, 0.3); /* הוספת צל כהה ועדין מתחת לטבלה כדי לתת לה תחושת נפח */
+        }
+
+        /* שורת תפריט הניווט */
+        tr.menu-row th {
+            padding: 25px 0; /* יצירת מרווח פנימי עליון ותחתון של 25 פיקסלים בתוך תאי התפריט */
+            background-color: rgba(0, 0, 0, 0.1); /* הכהיה קלה מאוד (10 אחוז שחור) של אזור התפריט להפרדה ויזואלית */
+        }
+
+        /* שורת התוכן המרכזית */
+        tr.content-row td {
+            padding: 40px 30px; /* מרווח פנימי גדול (40 פיקסלים למעלה/למטה, 30 פיקסלים מהצדדים) ששומר על מרחב נקי לתוכן הדפים */
+        }
+
+        /* כותרת האתר - זהב בוהק */
+        .site-title {
+            color: #edbb00; /* צבע הטקסט - זהב ברצלונה הרשמי */
+            font-size: 42px; /* גודל גופן גדול ובולט לכותרת הראשית */
+            margin-top: 25px; /* רווח חיצוני מעל הכותרת */
+            margin-bottom: 5px; /* רווח חיצוני קטן מתחת לכותרת */
+            font-weight: bold; /* הדגשת עובי אותיות הכותרת */
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7); /* הוספת צל שחור מאחורי האותיות כדי להקפיץ אותן מהרקע */
+        }
+
+        /* טקסט השלום */
+        .welcome-text {
+            font-size: 17px; /* גודל גופן בינוני לברכת השלום */
+            color: #ffffff; /* צבע הטקסט - לבן */
+            font-weight: 500; /* עובי אות חצי-מודגש */
+            margin-bottom: 25px; /* רווח חיצוני מתחת לברכה לפני תחילת הטבלה */
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5); /* צל עדין מאחורי הטקסט למניעת היבלעות ברקע */
+        }
+
+        /* עיצוב תמונות התפריט */
         img.a {
-            width: 200px;
-            height: 100px;
+            width: 200px; /* קביעת רוחב קבוע של 200 פיקסלים לכל כפתורי התמונות בתפריט */
+            height: 100px; /* קביעת גובה קבוע של 100 פיקסלים לכל כפתורי התמונות בתפריט */
+            margin: 10px; /* רווח חיצוני של 10 פיקסלים מכל הצדדים בין כפתור לכפתור שלא יידבקו */
+            border-radius: 12px; /* עיגול פינות התמונות ברדיוס של 12 פיקסלים למראה מודרני */
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3); /* צל תחתון עדין לכל כפתור תמונה */
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); /* הגדרת אנימציה חלקה, מקצועית ומהירה לכל שינויי העיצוב בריחוף */
+            cursor: pointer; /* שינוי סמן העכבר לצורת יד המורה על כפתור לחיץ */
+            background-color: rgba(255, 255, 255, 0.05); /* רקע שקוף קלות מאחורי התמונות */
+        }
+
+        /* אפקט ריחוף מודרני עם הילת זהב של בארסה */
+        img.a:hover {
+            transform: translateY(-6px); /* הזזת הכפתור 6 פיקסלים למעלה בריחוף עכבר ליצירת תחושת תלת-ממד */
+            box-shadow: 0 10px 25px rgba(237, 187, 0, 0.7); /* הגדלת הצל והפיכתו להילת זהב זוהרת סביב הכפתור */
+            outline: 3px solid #edbb00; /* הוספת מסגרת זהב חיצונית דקה בעובי 3 פיקסלים */
+            outline-offset: 3px; /* יצירת מרחק של 3 פיקסלים בין התמונה לבין מסגרת הזהב החיצונית */
         }
     </style>
 </head>
-<body dir="rtl" style="background: linear-gradient(to right, red, blue); color: white;">
+<body dir="rtl">
     <center>
-        <h2>הפרויקט של נועם</h2>
-        <p><%= Session["name"] != null ? Session["name"] : "שלום, אורח" %></p>
+        <%-- כותרת האתר הכללית --%>
+        <h2 class="site-title">הפרויקט של נועם</h2>
+        
+        <%-- שורת קוד שרת אינטרפולציה: בודקת האם קיים שם משתמש ב-Session. אם כן - מציגה אותו, אם לא - מציגה "שלום, אורח" --%>
+        <p class="welcome-text"><%= Session["name"] != null ? Session["name"] : "שלום, אורח" %></p>
 
-        <table style="width: 100%">
-            <tr style="height: 250px">
-<th>
-    <a href="home.aspx">
-        <img class="a" src="images/Home.png" /></a>
-                      
-    <a href="gallery.aspx">
-        <img class="a" src="images/גלריה.png" /> </a>    
-                    
-    <a href="info.aspx">
-        <img class="a" src="images/info.png" /></a>
+        <%-- הטבלה הראשית שמנהלת את מבנה דף האב --%>
+        <table style="width: 100%" class="main-table">
+            
+            <%-- השורה הראשונה בטבלה: מיועדת לתפריט הניווט (גובה 250 פיקסלים) --%>
+            <tr style="height: 250px" class="menu-row">
+                <th>
+                    <%-- כפתורי ניווט קבועים שיופיעו תמיד לכל סוגי המשתמשים (בית, גלריה, מידע) --%>
+                    <a href="home.aspx">
+                        <img class="a" src="images/Home.png" /></a>
+                                      
+                    <a href="gallery.aspx">
+                        <img class="a" src="images/גלריה.png" /> </a>    
+                                    
+                    <a href="info.aspx">
+                        <img class="a" src="images/info.png" /></a>
 
-<% if (Session["nihol"] != "ok" && Session["user"] != "ok") { %>
-    <a href="harshama.aspx">
-        <img class="a" src="images/harshama.png" /></a>  
-    <a href="entrance.aspx">
-        <img class="a" src="images/entrance.png" /></a>   
-<% } %>
+                <%-- בלוק קוד שרת: תנאי הבודק האם המשתמש הנוכחי הוא מנהל או משתמש רשום. --%>
+                <%-- התנאי מתקיים רק אם המשתמש הוא אורח (לא מנהל וגם לא משתמש רשום) --%>
+                <% if (Session["nihol"] != "ok" && Session["user"] != "ok") { %>
+                    <%-- אם המשתמש הוא אורח, יוצגו לו כפתורי הרשמה והתחברות --%>
+                    <a href="harshama.aspx">
+                        <img class="a" src="images/harshama.png" /></a>  
+                    <a href="entrance.aspx">
+                        <img class="a" src="images/entrance.png" /></a>   
+                <% } %>
 
-<% if (Session["nihol"] == "ok" || Session["user"] == "ok") { %>
-    <a href="Add.aspx">
-        <img class="a" src="images/הוספת%20פריט.png" /></a>
-    <a href="ShowPlayers.aspx">
-        <img class="a" src="images/הצגת%20שחקנים.png" /></a>
-    <a href="exit.aspx">
-        <img class="a" src="images/יציאה.png" /></a>  
-<% } %>
+                <%-- בלוק קוד שרת: תנאי המתקיים אם המשתמש מחובר (או כמנהל או כמשתמש רשום) --%>
+                <% if (Session["nihol"] == "ok" || Session["user"] == "ok") { %>
+                    <%-- אם המשתמש מחובר, יוצגו לו כפתורי הוספת פריט, הצגת שחקנים ויציאה מהחשבון --%>
+                    <a href="Add.aspx">
+                        <img class="a" src="images/הוספת%20פריט.png" /></a>
+                    <a href="ShowPlayers.aspx">
+                        <img class="a" src="images/הצגת%20שחקנים.png" /></a>
+                    <a href="exit.aspx">
+                        <img class="a" src="images/יציאה.png" /></a>  
+                <% } %>
 
-<%-- דפי הנהלה - למנהל בלבד --%>
-<% if (Session["nihol"] == "ok") { %>
-    <a href="update.aspx">
-        <img class="a" src="images/עדכונים.png" /></a>     
-    <a href="managment.aspx">
-        <img class="a" src="images/הנהלה.png" /></a>
-<% } %>
-</th>
+                <%-- דפי הנהלה - בלוק קוד שרת המוודא שהמשתמש הוא מנהל מערכת בלבד --%>
+                <% if (Session["nihol"] == "ok") { %>
+                    <%-- רק אם המשתמש הוא מנהל, יוצגו לו כפתורי ניהול המערכת (עדכונים והנהלה) --%>
+                    <a href="update.aspx">
+                        <img class="a" src="images/עדכונים.png" /></a>     
+                    <a href="managment.aspx">
+                        <img class="a" src="images/הנהלה.png" /></a>
+                <% } %>
+                </th>
             </tr>
 
-            <tr style="height: 500px">
+            <%-- השורה השנייה בטבלה: מיועדת להצגת תוכן הדפים הפנימיים (גובה 500 פיקסלים) --%>
+            <tr style="height: 500px" class="content-row">
                 <td>  
+                    <%-- פקד שרת קריטי המהווה "מקום מחזיק תוכן". כל דף תוכן פנימי שיורש מדף אב זה ישב בדיוק בתוך התא הזה --%>
                     <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
                     </asp:ContentPlaceHolder>
                 </td>
