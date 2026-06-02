@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Activities.Expressions;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,7 +10,7 @@ public partial class entrance : System.Web.UI.Page
     public string stResult = "";
     protected void Page_Load(object sender, EventArgs e)
     {
-        // תיקון מחוון: אם משתמש או מנהל כבר מחוברים, נזרוק אותם לדף הבית כי אסור להם לראות דף כניסה
+        // חובה במחוון: מניעת כניסה מדף אורח למשתמש רשום או מנהל
         if (Session["user"] == "ok" || Session["nihol"] == "ok")
         {
             Response.Redirect("home.aspx");
@@ -40,7 +39,8 @@ public partial class entrance : System.Web.UI.Page
 
                 if (dt.Rows.Count == 0)
                 {
-                    stResult = "אין נתונים";
+                    // חובה במחוון: הודעת שגיאה בהתחברות
+                    stResult = "אימייל או סיסמה שגויים, נסה שנית";
                     Session["name"] = "היי אורח";
                 }
                 else

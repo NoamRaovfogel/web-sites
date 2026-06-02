@@ -12,6 +12,7 @@
         FavoritesErr2.innerHTML = "";
         CoachErr2.innerHTML = "";
         TermsErr2.innerHTML = "";
+        UpdatesErr2.innerHTML = ""; // תיקון מחוון: איפוס שגיאת הערות
 
         result = true;
 
@@ -39,6 +40,9 @@
         if (CheckTerms() == false)
             result = false;
 
+        if (CheckUpdates() == false) // תיקון מחוון: בדיקת השדה האחרון
+            result = false;
+
         return result;
     }
 
@@ -48,7 +52,7 @@
             nameErr2.innerHTML = "שם חייב להכיל לפחות שני תווים";
             return false;
         }
-        if (name.length > 10) {
+        if (name.length > 20) {
             nameErr2.innerHTML = "שם ארוך מדי";
             return false;
         }
@@ -62,7 +66,7 @@
             emailErr2.innerHTML = "אימייל קצר מדי";
             return false;
         }
-        if (email.length > 25) {
+        if (email.length > 35) {
             emailErr2.innerHTML = "אימייל ארוך מדי";
             return false;
         }
@@ -90,12 +94,13 @@
     function CheckPhoneNumber() {
         phoneNumber = document.getElementById("phonenumber").value;
 
-        if (phoneNumber.length < 10) {
-            PhoneNumberErr2.innerHTML = "מספר טלפון קצר מדי";
+        if (phoneNumber.length != 10) {
+            PhoneNumberErr2.innerHTML = "מספר טלפון חייב להכיל בדיוק 10 ספרות";
             return false;
         }
-        if (phoneNumber.length > 10) {
-            PhoneNumberErr2.innerHTML = "מספר טלפון ארוך מדי";
+
+        if (isNaN(phoneNumber) == true) {
+            PhoneNumberErr2.innerHTML = "מספר טלפון חייב להכיל מספרים בלבד";
             return false;
         }
         return true;
@@ -147,6 +152,16 @@
         return true;
     }
 
+    // תיקון מחוון: פונקציה שמבטיחה שכל השדות באתר ללא יוצא מן הכלל עוברים בדיקה
+    function CheckUpdates() {
+        updates = document.getElementById("textarea1").value;
+        if (updates.length > 150) {
+            UpdatesErr2.innerHTML = "שדה ההערות מוגבל ל-150 תווים בלבד";
+            return false;
+        }
+        return true;
+    }
+
 </script>
 </asp:Content>
 
@@ -159,29 +174,29 @@
 
 <h1 style="text-align:right;">האתר הרשמי של אוהדי ברצלונה</h1>
 
-<form name="formPage" method="post" runat="server" style="text-align:right;" onsubmit="return checkAll();">
+<form name="formPage" method="post" runat="server" dir="rtl" style="margin-right: 0;" onsubmit="return checkAll();">
 
-:שם פרטי ושם משפחה  
+<b>שם פרטי ושם משפחה:</b>  
 <input type="text" id="name" name="name">
 <span id="nameErr2" style="color:red;"></span>
-<br />
+<br /><br />
 
-:אימייל  
+<b>אימייל:</b>  
 <input type="text" id="email" name="email">
 <span id="emailErr2" style="color:red;"></span>
-<br />
+<br /><br />
 
-:סיסמה  
+<b>סיסמה:</b>  
 <input type="password" id="Password" name="Password">
 <span id="PasswordErr2" style="color:red;"></span>
-<br />
+<br /><br />
 
-:מספר טלפון  
+<b>מספר טלפון:</b>  
 <input type="text" id="phonenumber" name="phonenumber">
 <span id="PhoneNumberErr2" style="color:red;"></span>
 <br /><br />
 
-שחקני כדורגל אהובים:<br />
+<b>שחקני כדורגל אהובים:</b><br />
 מסי <input type="checkbox" name="players" value="מסי" id="check_1"><br />
 ניימאר <input type="checkbox" name="players" value="ניימאר" id="check_2"><br />
 ראפיניה <input type="checkbox" name="players" value="ראפיניה" id="check_3"><br />
@@ -190,7 +205,7 @@
 
 <br /><br />
 
-מאמן כדורגל אהוב:<br />
+<b>מאמן כדורגל אהוב:</b><br />
 האנסי פליק <input type="radio" name="radio1" value="האנסי פליק" id="radio_1"><br />
 רונלד קואמן <input type="radio" name="radio1" value="רונלד קואמן" id="radio_2"><br />
 צ'אבי הרננדז <input type="radio" name="radio1" value="צ'אבי הרננדז" id="radio_3"><br />
@@ -199,7 +214,7 @@
 
 <br /><br />
 
-האם אתה מאשר את התקנון:<br />
+<b>האם אתה מאשר את התקנון:</b><br />
 כן <input type="radio" name="radio2" value="כן" id="radio_7"><br />
 לא <input type="radio" name="radio2" value="לא" id="radio_8"><br />
 <span id="TermsErr2" style="color:red;"></span>
@@ -216,11 +231,13 @@
 
 <br /><br />
 
-<textarea id="textarea1" name="updates"></textarea>
+<b>הערות / עדכונים:</b><br />
+<textarea id="textarea1" name="updates" rows="4" cols="30"></textarea>
+<span id="UpdatesErr2" style="color:red;"></span>
 
 <br /><br />
 
-<input type="submit" value="שלח">
+<input type="submit" value="שלח" style="padding: 5px 15px; cursor: pointer;">
 
 </form>
 

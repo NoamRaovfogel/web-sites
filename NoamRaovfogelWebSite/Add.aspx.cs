@@ -37,7 +37,7 @@ public partial class Add : System.Web.UI.Page
             }
 
             // שאילתת הוספה מעודכנת לטבלה Tbarca
-            string sqlInsert = "INSERT INTO Tbarca VALUES (" +
+            string sqlInsert = "INSERT INTO Tbarca(Name , Age , Trophies , Clubs , Idol) VALUES (" +
                                "N'" + Name + "', " +
                                Age + ", " +
                                Trophies + ", " +

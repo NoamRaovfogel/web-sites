@@ -20,13 +20,13 @@ public partial class harshama : System.Web.UI.Page
         if (Page.IsPostBack)
         {
             string Name = Request.Form["name"];
-            String Email = Request.Form["email"];
+            string Email = Request.Form["email"];
             string Password = Request.Form["Password"];
             string PhoneNumber = Request.Form["phonenumber"];
             string Players = Request.Form["players"];
             string Coach = Request.Form["radio1"];
             string Updates = Request.Form["updates"];
-            String Regulations = Request.Form["radio2"];
+            string Regulations = Request.Form["radio2"];
             string Age = Request.Form["age"];
 
             if (string.IsNullOrEmpty(Age) || Age == "0")
@@ -44,8 +44,10 @@ public partial class harshama : System.Web.UI.Page
                 st = "מייל זה כבר קיים במערכת"; // תיקון מחוון: הודעה ברורה
             else
             {
+                // תיקון קריסת SQL: הוספת שמות העמודות במפורש (UserName, Email, Password...) 
+                // כדי למנוע ניסיון הכנסה לעמודת ה-UserId האוטומטית שמקריסה את הדף
                 string sqlinsert =
-                "insert into tUsers" +
+                "insert into tUsers (Name, Email, Password, PhoneNumber, FootballPlayers, FootballCoach, Updates, Regulations, Age)" +
                 " values (" +
                 "N'" + Name + "'," +
                 "N'" + Email + "'," +
