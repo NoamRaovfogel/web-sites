@@ -53,7 +53,7 @@ public partial class Add : System.Web.UI.Page
             MyAdoHelper.DoQuery("MyDb.mdf", sqlInsert);
 
             // הפניה חזרה לדף הבית לאחר ביצוע השמירה בהצלחה (כדי שהמשתמש לא יראה דף ריק)
-            Response.Redirect("home.aspx");
+            Response.Redirect("showplayers.aspx");
         }
     }
 }
