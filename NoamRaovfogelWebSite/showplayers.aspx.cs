@@ -31,8 +31,8 @@ public partial class ShowPlayers : System.Web.UI.Page
             // שמירת מחרוזת החיפוש שהתקבלה מהמשתמש
             string search = Request.Form["searchName"];
 
-            // עדכון השאילתה לשאילתת סינון באמצעות אופרטור LIKE וסימני אחוז (%) המאפשרים חיפוש תת-מחרוזת חלקי בכל מקום בשם
-            sql = "SELECT * FROM Tbarca WHERE Name LIKE '%" + search + "%'";
+            // תיקון: הוספת האות N לפני הגרש כדי לתמוך בחיפוש בעברית (Unicode)
+            sql = "SELECT * FROM Tbarca WHERE Name LIKE N'%" + search + "%'";
         }
 
         // הרצת השאילתה מול קובץ מסד הנתונים ושמירת הרשומות שחזרו בתוך אובייקט DataTable בזיכרון

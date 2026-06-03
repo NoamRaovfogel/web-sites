@@ -24,15 +24,18 @@ public partial class harshama : System.Web.UI.Page
         // בדיקה האם הגענו לדף בעקבות לחיצה על כפתור השליחה של הטופס (PostBack)
         if (Page.IsPostBack)
         {
+
+            // 🌟 תיקון: שליפת הנתונים ומיד החלפת גרש בודד בגרש כפול למניעת קריסות SQL
+            // הסימן ?? "" מוודא שאם הערך ריק, הוא לא יזרוק שגיאה אלא יכניס מחרוזת ריקה
             // קליטת הנתונים שנשלחו מהרכיבים השונים בטופס ה-HTML באמצעות מערך Request.Form לפי ה-name שלהם
-            string Name = Request.Form["name"];
-            string Email = Request.Form["email"];
-            string Password = Request.Form["Password"];
-            string PhoneNumber = Request.Form["phonenumber"];
-            string Players = Request.Form["players"]; // בתיבות סימון, אם נבחרו כמה, הערכים יתקבלו מופרדים בפסיקים
-            string Coach = Request.Form["radio1"];
-            string Updates = Request.Form["updates"];
-            string Regulations = Request.Form["radio2"];
+            string Name = (Request.Form["name"] ?? "").Replace("'", "''");
+            string Email = (Request.Form["email"] ?? "").Replace("'", "''");
+            string Password = (Request.Form["Password"] ?? "").Replace("'", "''");
+            string PhoneNumber = (Request.Form["phonenumber"] ?? "").Replace("'", "''");
+            string Players = (Request.Form["players"] ?? "").Replace("'", "''");// בתיבות סימון, אם נבחרו כמה, הערכים יתקבלו מופרדים בפסיקים
+            string Coach = (Request.Form["radio1"] ?? "").Replace("'", "''");
+            string Updates = (Request.Form["updates"] ?? "").Replace("'", "''");
+            string Regulations = (Request.Form["radio2"] ?? "").Replace("'", "''");
             string Age = Request.Form["age"];
 
             // בדיקת הגנה למניעת שגיאות טיפוס במסד הנתונים במידה והגיל לא הגיע בצורה תקינה
