@@ -25,9 +25,8 @@ public partial class entrance : System.Web.UI.Page
         if (Page.IsPostBack)
         {
             // קליטת הנתונים שהקליד הגולש בשדות האימייל והסיסמה מתוך מערך Request.Form
-            string email = Request.Form["gmail"];
-            string password = Request.Form["Password"];
-
+            string email = (Request.Form["gmail"] ?? "").Replace("'", "''");
+            string password = (Request.Form["Password"] ?? "").Replace("'", "''");
             // בדיקה מיוחדת (Hard-Coded) האם הפרטים שהוזנו תואמים בדיוק לפרטי מנהל המערכת (נועם)
             if (email == "NoamRaovfogel@1234gmail.com" && password == "Noam5432")
             {
